@@ -46,11 +46,12 @@ if(isset($_REQUEST["type"])&&$_REQUEST["type"]=="filter"){
     }else {
       // output data of each row
       $result_array = array();
-      
+
       while($row = sqlsrv_fetch_array( $result , SQLSRV_FETCH_ASSOC) ) {
         array_push($result_array,$row);
       }
       $result_arr = array();
+      //asdf
       foreach($result_array as $item){
           $count = 0;
           foreach($words as $word){
