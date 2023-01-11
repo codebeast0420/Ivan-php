@@ -1,146 +1,181 @@
 <html>
-    <head>
-        <title>Invoice System</title>
-        <!-- Latest compiled and minified CSS -->
-        
-        <style>
-            .container {
-                margin-top: 50px;
-            }
 
-            .row {
-                margin-bottom: 5px;
-            }
+<head>
+	<title>Invoice System</title>
+	<!-- Latest compiled and minified CSS -->
 
-            .status_list, .item_list {
-                list-style: none;
-                padding-left: 0;
-            }
-            .order_parts h5{
-                margin-top: 2px;
-                margin-bottom: 2px;
-            }
-            .order_parts .row{
-                margin-bottom:10px
-            }
-            .order_parts .row div{
-                display: block;
-                float: left;
-                padding-left: 20px;
-                padding-right:20px;
-            }
-            .item_list .col-sm-10 {
-                display: block;
-                float: left;
-                padding-left: 10px;
-            }
-            .footer .row{
-                display: block;
-                float: left;
-                align-items: center;
-                margin-bottom: 5px;
-            }
-            .footer h5 {
-                margin-top: 2px;
-                margin-bottom:2px;
-            }
-            .show {display: block;}
-            .row {
-                margin-right: -10px;
-                margin-left:  -10px;
-                width: 100%;
-                display: block;
-                float: left;
-            }
-            .col-sm-3,.col-sm-6,.col-sm-9{
-                float: left;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            .col-sm-1{
-                width: 8.3%;
-                float: left;
-            }
-            .col-sm-2{
-                width: 16.6%;
-                float: left;
-            }
-            .col-sm-3{
-                width: 25%;
-                float: left;
-            }
-            .col-sm-4{
-                width: 33.3%;
-                float: left;
-            }
-            .col-sm-6{
-                width: 50%;
-                float: left;
-            }
-            .col-sm-9{
-                width: 75%;
-                float: left;
-            }
-            .col-sm-10{
-                width: 83%;
-                float: left;
-            }
-            .col-sm-12{
-                width: 100%;
-                float: left;
-            }
-            .col{
-                display: block;
-                float: left;
-                padding-left: 20px;
-                padding-right:20px
-            }
-            .removeBtn{
-                display:none
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col number">
-                    <h4>Job/Work Number: </h4>
-                </div>
-                <div class="col">
-                    <h5>{{work_num}}</h5>
-                </div>
-            </div>
-            <div class="row requested_by">
-                <div class="col">
-                    <h4>Requested By:</h4>
-                </div>
-                <div class="col-sm-6">
-                    <h5>{{requested_by}}</h5>
-                </div>
-            </div>
-            <div class="row order_parts">
-                <div class="col">
-                    <h4>Order Parts: </h4>
-                </div>
-                <div class="col-sm-10">
-                    <div class="row">
-                        <div class="col-sm-1"><h5>Qty</h5></div>
-                        <div class="col-sm-4"><h5>Parts</h5></div>
-                        <div class="col-sm-2"><h5>Unit</h5></div>
-                        <div class="col-sm-2"><h5>Need By</h5></div>
-                    </div>
-                    {{item_list}}
-                </div>
-            </div>
-            <div class="row vehicle_number">
-                <div class="col">
-                    <h4>Vehicle Number: </h4>
-                </div>
-                <div class="col-sm-6">
-                    <h5>{{vehicle_num}}</h5>
-                </div>
-            </div>
-            
-        </div>
-    </body>
+	<style>
+		.container {
+			margin-top: 50px;
+		}
+
+		.row {
+			margin-bottom: 5px;
+		}
+
+		.status_list,
+		.item_list {
+			list-style: none;
+			padding-left: 0;
+		}
+
+		.order_parts h5 {
+			margin-top: 2px;
+			margin-bottom: 2px;
+		}
+
+		.order_parts .row {
+			margin-bottom: 10px
+		}
+
+		.order_parts .row div {
+			display: block;
+			float: left;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		.item_list .col-sm-10 {
+			display: block;
+			float: left;
+			padding-left: 10px;
+		}
+
+		.footer .row {
+			display: block;
+			float: left;
+			align-items: center;
+			margin-bottom: 5px;
+		}
+
+		.footer h5 {
+			margin-top: 2px;
+			margin-bottom: 2px;
+		}
+
+		.show {
+			display: block;
+		}
+
+		.row {
+			margin-right: -10px;
+			margin-left: -10px;
+			width: 100%;
+			display: block;
+			float: left;
+		}
+
+		.col-sm-3,
+		.col-sm-6,
+		.col-sm-9 {
+			float: left;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		.col-sm-1 {
+			width: 8.3%;
+			float: left;
+		}
+
+		.col-sm-2 {
+			width: 16.6%;
+			float: left;
+		}
+
+		.col-sm-3 {
+			width: 25%;
+			float: left;
+		}
+
+		.col-sm-4 {
+			width: 33.3%;
+			float: left;
+		}
+
+		.col-sm-6 {
+			width: 50%;
+			float: left;
+		}
+
+		.col-sm-9 {
+			width: 75%;
+			float: left;
+		}
+
+		.col-sm-10 {
+			width: 83%;
+			float: left;
+		}
+
+		.col-sm-12 {
+			width: 100%;
+			float: left;
+		}
+
+		.col {
+			display: block;
+			float: left;
+			padding-left: 20px;
+			padding-right: 20px
+		}
+
+		.removeBtn {
+			display: none
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col number">
+				<h4>Job/Work Number: </h4>
+			</div>
+			<div class="col">
+				<h5>{{work_num}}</h5>
+			</div>
+		</div>
+		<div class="row requested_by">
+			<div class="col">
+				<h4>Requested By:</h4>
+			</div>
+			<div class="col-sm-6">
+				<h5>{{requested_by}}</h5>
+			</div>
+		</div>
+		<div class="row order_parts">
+			<div class="col">
+				<h4>Order Parts: </h4>
+			</div>
+			<div class="col-sm-10">
+				<div class="row">
+					<div class="col-sm-1">
+						<h5>Qty</h5>
+					</div>
+					<div class="col-sm-4">
+						<h5>Parts</h5>
+					</div>
+					<div class="col-sm-2">
+						<h5>Unit</h5>
+					</div>
+					<div class="col-sm-2">
+						<h5>Need By</h5>
+					</div>
+				</div>
+				{{item_list}}
+			</div>
+		</div>
+		<div class="row vehicle_number">
+			<div class="col">
+				<h4>Vehicle Number: </h4>
+			</div>
+			<div class="col-sm-6">
+				<h5>{{vehicle_num}}</h5>
+			</div>
+		</div>
+
+	</div>
+</body>
+
 </html>
